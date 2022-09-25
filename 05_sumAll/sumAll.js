@@ -1,5 +1,16 @@
-const sumAll = function(start, end) {
+const sumAll = function(start, end) {	
+	if(start <= 0 || end <= 0 || typeof(start) !== 'number' || typeof(end) !== 'number') {
+		return 'ERROR'
+	}
+
 	let sum = 0;
+
+	if (start > end) {
+		start = start ^ end;
+		end = start ^ end;
+		start = start ^ end;
+	}
+
 	for (let i = start; i <= end; i++) {
 		sum += i;
 	}
